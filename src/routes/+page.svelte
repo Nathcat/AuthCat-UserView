@@ -1,14 +1,13 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import type { PageProps } from "./$types";
-  import Profilepicture from "./Profilepicture.svelte";
+  import Profilepicture from "$lib/nathcat.net/Profilepicture.svelte";
 
   let { data }: PageProps = $props();
 </script>
 
 <h1>Welcome, {data.fullName}.</h1>
-<Profilepicture src={"https://cdn.nathcat.net/pfps/" + data.pfpPath}
-></Profilepicture>
+<Profilepicture width="25%" src={data.pfpPath}></Profilepicture>
 
 <div class="content-card">
   <h2>User information</h2>

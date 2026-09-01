@@ -1,0 +1,274 @@
+/*
+ * Set root variables
+ */
+:root {
+  --primary-color: #353535;
+  --secondary-color: #464646;
+  --tertiary-color: #ff8059;
+  --quad-color: #ffffff;
+  --icon-size-desktop: 25px;
+}
+
+/* 
+ * Setup base page layout, and text settings 
+ */
+html {
+  background-color: var(--primary-color);
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--quad-color);
+  font-family: "Lucida Console", monospace;
+}
+
+code {
+  color: var(--tertiary-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--tertiary-color);
+  font-family: "Lucida Console", monospace;
+  box-sizing: border-box;
+  transition: 500ms;
+}
+
+a:hover {
+  color: var(--quad-color);
+  text-decoration: underline;
+}
+
+/*
+ * Pages are arranged via a parent grid layout:
+ * content
+ *    header
+ *    content
+ *      main
+ *    footer
+ *
+ * This section sets up these classes
+ */
+
+/* Header (class is called navbar) */
+.navbar {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--quad-color);
+}
+
+.navbar h1 {
+  width: 100%;
+  text-align: center;
+}
+
+/* Content */
+.content {
+  box-sizing: border-box;
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+
+/* Main */
+.main {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  display: grid;
+  grid-area: footer;
+}
+
+@media (width > 1000px) {
+  .footer {
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      ". github replit instagram facebook linkedin ."
+      ". . copyright copyright copyright . .";
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "github replit instagram facebook linkedin"
+      ". copyright copyright copyright .";
+  }
+}
+
+.footer #footer-github {
+  grid-area: github;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer #footer-replit {
+  grid-area: replit;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer #footer-instagram {
+  grid-area: instagram;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer #footer-facebook {
+  grid-area: facebook;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer #footer-linkedin {
+  grid-area: linkedin;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer #footer-copyright {
+  grid-area: copyright;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+/* 
+ * Following are simple flex container class definitions. 
+ * One can combine these to form computable layouts on the page
+ */
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.half-spacer {
+  flex-grow: 0.5;
+}
+
+.quarter-spacer {
+  flex-grow: 0.25;
+}
+
+/*
+ * Definitions of content-card and error-card.
+ * These define visual boxes which contain content built upon a contrast from the background/
+ */
+.content-card {
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.content-card .sub-content-card {
+  border: 2px solid var(--quad-color);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.error-card {
+  background-color: var(--quad-color);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.error-card h1,
+.error-card h2,
+.error-card h3,
+.error-card h4,
+.error-card h5,
+.error-card h6,
+.error-card p {
+  color: var(--primary-color);
+}
+
+/*
+ * Input, button, and text field styles
+ */
+input,
+button,
+textarea {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--tertiary-color);
+  background-color: var(--secondary-color);
+  color: var(--quad-color);
+  transition: 500ms;
+}
+
+input[type="submit"],
+button {
+  border: 5px solid var(--quad-color);
+}
+
+input[type="submit"]:hover,
+button:hover {
+  padding: 20px;
+  transition: 500ms;
+  color: var(--tertiary-color);
+  background-color: var(--quad-color);
+}

@@ -1,5 +1,6 @@
 import type { PageServerLoad } from "./$types";
-import { CLIENT_ID, CLIENT_SECRET } from "$env/static/private";
+import { PUBLIC_CLIENT_ID } from "$env/static/public";
+import { CLIENT_SECRET } from "$env/static/private";
 import { v4 as uuid } from "uuid";
 import Database from "better-sqlite3";
 import { redirect } from "@sveltejs/kit";
@@ -20,7 +21,7 @@ export const load: PageServerLoad = async ({ url, cookies }) => {
       {
         method: "POST",
         headers: {
-          Authorization: "Basic " + CLIENT_ID + ":" + CLIENT_SECRET,
+          Authorization: "Basic " + PUBLIC_CLIENT_ID + ":" + CLIENT_SECRET,
         },
       },
     );
