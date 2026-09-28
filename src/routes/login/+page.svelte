@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_CLIENT_ID } from "$env/static/public";
+  import OauthButton from "$lib/nathcat.net/OauthButton.svelte";
 </script>
 
 <div class="content">
@@ -13,14 +13,7 @@
       access your user information, please click the button below to login via
       AuthCat.
     </p>
-    <button
-      on:click={() => {
-        window.location.href =
-          "https://auth.nathcat.net/auth?client_id=" +
-          PUBLIC_CLIENT_ID +
-          "&response_type=code";
-      }}>Login with AuthCat</button
-    >
+    <OauthButton></OauthButton>
   </div>
 </div>
 

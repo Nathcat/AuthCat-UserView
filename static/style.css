@@ -267,7 +267,6 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-  padding: 20px;
   transition: 500ms;
   color: var(--tertiary-color);
   background-color: var(--quad-color);
